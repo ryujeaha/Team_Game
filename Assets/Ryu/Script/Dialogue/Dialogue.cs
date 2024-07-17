@@ -17,5 +17,5 @@ public class DialogueEvent//Dialogue의 내용을 여러개 사용하기 위해서
 {
     public string E_Name;//이벤트의 이름
     public Vector2 line;//x~y까지의 대사를 추출해내기 위한 변수
-    public Dialogue[] dialogue;//Dialogue 클래스가 여러개 있어야 여러 캐릭터의 대사를 사용할 수 있으므로, 다른 클래스에서 배열로 만들어 줌.
+    public Dialogue[] dialogues;//Dialogue 클래스가 여러개 있어야 여러 캐릭터의 대사를 사용할 수 있으므로, 다른 클래스에서 배열로 만들어 줌.
 }
