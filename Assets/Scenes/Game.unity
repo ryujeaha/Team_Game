@@ -1175,7 +1175,7 @@ MonoBehaviour:
   Dialogue_Name_Bar: {fileID: 690801468}
   txt_Dialogue: {fileID: 35693402}
   txt_Name: {fileID: 1620621161}
-  text_Delay: 0.1
+  text_Delay: 0.07
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
