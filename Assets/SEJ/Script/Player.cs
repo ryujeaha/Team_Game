@@ -28,7 +28,6 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A)) //키보드 A 누르는중일 시
         {
-            Debug.Log("A키 누름");
             transform.Translate(new Vector2(-1f, 0) * P_Speed * Time.deltaTime); //Z축 이동 필요 없을 것 같아서 Vector2 사용 *매우 굿*
             dir_vec = Vector2.left;
             //*Translate 함수:transform의 하위 함수로, 위치값을 정해준 값만큼 더해서 이동시키는 함수.
@@ -38,8 +37,7 @@ public class Player : MonoBehaviour
         }
 
         if (Input.GetKey(KeyCode.D)) //키보드 D 누르는중일 시
-        {
-            Debug.Log("D키 누름");
+        {  
             transform.Translate(new Vector2(1f, 0)* P_Speed * Time.deltaTime);
             dir_vec =Vector2.right;
         }
