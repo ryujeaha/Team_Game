@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 {
 
     public float P_Speed; //이동 속도 변수
+    public bool  is_Action = false;//상호작용 중인지 아닌지 여부.
+
 
     RaycastHit2D hitInfo;//충돌했는지 여부.
     public GameObject scan_Obj;//충돌한 상호작용 객체정보를 담는 변수.
@@ -19,9 +21,11 @@ public class Player : MonoBehaviour
     }
     // Update is called once per frame
     void Update()
-    {
-       P_MOVE();//이동 버튼 판정
-       Check_Object();
+    {  
+       if(!is_Action){
+        P_MOVE();//이동 버튼 판정
+        Check_Object();//상호작용 판정.
+       }
     }
 
     void P_MOVE()//*주요 기능들은 함수로 묶는 것이 보거나 수정할 때 편해요!
@@ -41,12 +45,6 @@ public class Player : MonoBehaviour
             transform.Translate(new Vector2(1f, 0)* P_Speed * Time.deltaTime);
             dir_vec =Vector2.right;
         }
-
-        if(Input.GetKeyDown(KeyCode.E) && scan_Obj != null)
-        {
-          
-            the_DM.Show_Dialogue(hitInfo.transform.GetComponent<Interaction_Event>().GetDialogues());
-        }
     }
 
     void  Check_Object(){
@@ -56,6 +54,12 @@ public class Player : MonoBehaviour
         if(hitInfo.collider != null)//상호작용 가능 객체와 충돌 했다면.
         {
             scan_Obj = hitInfo.collider.gameObject;
+        }
+
+        if(Input.GetKeyDown(KeyCode.E) && scan_Obj != null)
+        {
+            is_Action = true;
+            the_DM.Show_Dialogue(hitInfo.transform.GetComponent<Interaction_Event>().GetDialogues());
         }
     }
 }
